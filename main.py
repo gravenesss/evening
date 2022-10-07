@@ -47,9 +47,15 @@ def get_random_color():
 
 # next_time - now_time的时间
 def get_sub_days(now_time, next_time):
-    if next_time < now_time:
-        next_time = next_time.replace(year=next.year + 1)
     return (next_time - now_time).days
+
+
+# 获取生日
+def get_birthday():
+    next_birthday = datetime.strptime(str(date.today().year) + "-" + birthday, "%Y-%m-%d")
+    if next_birthday < datetime.now():
+        next_birthday = next_birthday.replace(year=next_birthday.year + 1)
+    return (next_birthday - datetime.now()).days
 
 
 # 准备客户端进行发送
@@ -78,7 +84,7 @@ data = {"date": {"value": time_week},
         # "love_days": {"value": get_sub_days(start_time, now)},  # get_count()
         "next_meet": {"value": next_meet_day},  # 这里是字符串
         "next_meet_left": {"value": get_sub_days(now, next_meet)},
-        "birthday_left": {"value": get_sub_days(now,next_birth )},  # get_birthday()
+        "birthday_left": {"value": get_birthday()},  # get_birthday()
         "words": {"value": get_words(), "color": get_random_color()}}
 
 for user in users:
