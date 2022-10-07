@@ -78,7 +78,7 @@ data = {"date": {"value": time_week},
         # "love_days": {"value": get_sub_days(start_time, now)},  # get_count()
         "next_meet": {"value": next_meet_day},  # 这里是字符串
         "next_meet_left": {"value": get_sub_days(now, next_meet)},
-        # "birthday_left": {"value": get_sub_days(next_birth, now)},  # get_birthday()
+        "birthday_left": {"value": get_sub_days(next_birth, now)},  # get_birthday()
         "words": {"value": get_words(), "color": get_random_color()}}
 
 for user in users:
